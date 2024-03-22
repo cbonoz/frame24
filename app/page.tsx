@@ -11,7 +11,8 @@ import {
 } from "frames.js/next/server";
 import Link from "next/link";
 import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "./debug";
-import { currentURL } from "./utils";
+import { currentURL } from "./lib/utils";
+import { VideoPlayer } from './components/VideoPlayer';
 
 type State = {
   active: string;
@@ -56,8 +57,12 @@ export default async function Home({ searchParams }: NextServerPageProps) {
   // then, when done, return next frame
   return (
     <div className="p-4">
-      frames.js starter kit. The Template Frame is on this page, it&apos;s in
-      the html meta tags (inspect source).{" "}
+      {/* frames.js starter kit. The Template Frame is on this page, it&apos;s in
+      the html meta tags (inspect source). */}
+
+      <VideoPlayer title="Video" />
+
+
       <Link href={createDebugUrl(url)} className="underline">
         Debug
       </Link>

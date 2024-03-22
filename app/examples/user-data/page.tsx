@@ -9,7 +9,7 @@ import {
   useFramesReducer,
 } from "frames.js/next/server";
 import Link from "next/link";
-import { currentURL } from "../../utils";
+import { currentURL } from "../../lib/utils";
 import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../debug";
 
 type State = {

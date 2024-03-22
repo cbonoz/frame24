@@ -8,7 +8,7 @@ import {
   getPreviousFrame,
 } from "frames.js/next/server";
 import { getXmtpFrameMessage, isXmtpFrameActionPayload } from "frames.js/xmtp";
-import { currentURL } from "../../utils";
+import { currentURL } from "../../lib/utils";
 import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../debug";
 import Link from "next/link";
 

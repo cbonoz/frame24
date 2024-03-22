@@ -12,7 +12,7 @@ import Link from "next/link";
 import { getTokenUrl } from "frames.js";
 import { zora } from "viem/chains";
 import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../debug";
-import { currentURL } from "../../utils";
+import { currentURL } from "../../lib/utils";
 
 type State =
   | {

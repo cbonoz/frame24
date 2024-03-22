@@ -9,7 +9,7 @@ import {
 } from "frames.js/next/server";
 import Link from "next/link";
 import { RandomNumberRequestStateValue } from "./slow-fetch/types";
-import { currentURL } from "../../utils";
+import { currentURL } from "../../lib/utils";
 import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../debug";
 
 type State = {};

@@ -7,3 +7,10 @@ export function currentURL(pathname: string): URL {
 
   return new URL(pathname, `${protocol}://${host}`);
 }
+
+export const requireEnv = (value: any, key: string): string => {
+  if (!value) {
+    throw new Error(`Missing required environment variable: ${key}`);
+  }
+  return value;
+}

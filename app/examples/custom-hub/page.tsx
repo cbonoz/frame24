@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 import { getTokenUrl } from "frames.js";
 import { createDebugUrl } from "../../debug";
-import { currentURL } from "../../utils";
+import { currentURL } from "../../lib/utils";
 
 type State = {
   active: string;
