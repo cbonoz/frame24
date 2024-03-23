@@ -2,10 +2,13 @@ import {
 	getFarcasterUserDetails,
 	FarcasterUserDetailsInput,
 	FarcasterUserDetailsOutput,
+	getFarcasterUserERC20Balances,
+	FarcasterUserERC20BalancesOutput,
 } from '@airstack/frames';
 
 import { init } from '@airstack/frames';
 import { requireEnv } from './utils';
+import { Holding } from '../types';
 
 const airstackKey = requireEnv(process.env.AIRSTACK_API_KEY, 'AIRSTACK_API_KEY');
 
@@ -22,4 +25,13 @@ export const getFarcasterUser = async (fid: number) => {
 
 	console.log('get user data:', data);
 	return data;
-};
+}
+
+export const getBalances = (fid: number): Promise<FarcasterUserERC20BalancesOutput> => {
+const input = {
+	fid,
+	limit: 100,
+  };
+
+  return getFarcasterUserERC20Balances(input);
+}

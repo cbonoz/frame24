@@ -31,3 +31,10 @@ export const createTargetUrl = (params: any) => {
 	const searchParams = new URLSearchParams(params);
 	return "?" + searchParams.toString();
 }
+
+export const printSymbolProportionalTimesRoundingUp = (amount, maxAmount, symbol, maxLength) => {
+	const proportionalAmount = Math.ceil(amount / maxAmount * maxLength);
+	return symbol.repeat(proportionalAmount);
+}
+
+

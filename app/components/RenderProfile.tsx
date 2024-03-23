@@ -18,7 +18,7 @@ const RenderProfile = ({ profile }: Props) => {
 	const relevanceScore = (profile.score || 0) * 100;
 
 	return (
-		<div tw="flex flex-col align-center justify-center">
+		<div tw="flex flex-col align-center justify-center max-w-[400]">
 			<div tw="flex font-bold">{profile.username}</div>
 			<img src={profile.pfp} alt={profile.username} tw="h-[50] w-[50]" />
 			<div tw="flex text-xl">{profile.fname}</div>

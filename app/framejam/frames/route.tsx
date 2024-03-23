@@ -13,11 +13,12 @@ import {
 	APP_NAME,
 	HEADER_HEIGHT,
 } from '../../lib/constants';
-import { createTargetUrl } from '../../lib/utils';
+import { createTargetUrl, printSymbolProportionalTimesRoundingUp } from '../../lib/utils';
 import { getPersonalizedEngagement } from '../../lib/karma';
 import { getFidUser, trackAddEvent } from '../../lib/pinata';
 import RenderProfile from '../../components/RenderProfile';
 import { isEmpty } from 'livepeer/dist/internal/utils';
+import { getBalances } from '../../lib/airstack';
 
 const frames = createFrames({
 	basePath: '/framejam/frames',
@@ -44,8 +45,9 @@ const handleRequest = frames(async (ctx) => {
 	// 	hubHttpUrl: DEFAULT_DEBUGGER_HUB_URL,
 	// });
 	const { message: frameMessage } = ctx;
+
 	console.log('url', ctx.url);
-	// console.log('message', frameMessage);
+	console.log('ctx', ctx);
 
 	// untrusted data
 
@@ -116,15 +118,14 @@ const handleRequest = frames(async (ctx) => {
 				if (isAdding && active) {
 					console.log('adding: ', active);
 					selected.push(active);
-					const actionData = ctx.searchParams.actionData;
-					await trackAddEvent(actionData, active.fid + '');
+					await trackAddEvent(frameMessage, active.fid + '');
 				}
 
 				const title = `Discover ${activeIndex + 1}/${neighbors.length} profiles`;
 				return {
 					image: (
 						<Layout title={title} profileImage={profileImage} displayName={displayName}>
-							<div tw="flex bg-indigo-500 text-white w-full h-full justify-center items-center">
+							<div tw="flex bg-indigo-500 text-white w-full pt-8 pb-16 justify-center">
 								{/* <div tw="flex text-2xl font-bold">Discover {requesterFid}</div> */}
 								{!isEmpty(active.pfp) && <RenderProfile profile={active} />}
 								{isEmpty(active.pfp) && (
@@ -156,7 +157,7 @@ const handleRequest = frames(async (ctx) => {
 							Nay ⬇️
 						</Button>,
 						<Button action="post" target={createTargetUrl({ page: FramePage.ViewInfo })}>
-							View info
+							View holdings
 						</Button>,
 						<Button action="post" target={createTargetUrl({ page: FramePage.Results })}>
 							Done 🎉
@@ -168,6 +169,35 @@ const handleRequest = frames(async (ctx) => {
 						selected,
 						activeIndex: activeIndex + 1,
 					},
+				};
+
+			case FramePage.ViewInfo:
+				const holdings = await getBalances(requesterFid as number);
+
+				const amounts = (holdings as any).map((x) => x.amount);
+				const maxAmount = Math.max(...amounts);
+
+				return {
+					image: (
+						<Layout title="Holdings" profileImage={profileImage} displayName={displayName}>
+							<div tw="flex flex-col p-4">
+								<div tw="flex font-bold">Holdings:</div>
+								<div tw="flex">
+									{(holdings as any).map((holding: any, i: number) => (
+										<div tw="flex" key={i}>
+											{holding.symbol} {holding.amount}{' '}
+											{printSymbolProportionalTimesRoundingUp(holding.amount, maxAmount, '🍯', 10)}
+										</div>
+									))}
+								</div>
+							</div>
+						</Layout>
+					),
+					buttons: [
+						<Button action="post" target={createTargetUrl({ page: FramePage.Discover })}>
+							Back
+						</Button>,
+					],
 				};
 			case FramePage.Results:
 				const orderedSelected = selected.sort((a, b) => b.score - a.score);
