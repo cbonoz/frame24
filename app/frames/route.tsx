@@ -44,7 +44,7 @@ const handleRequest = frames(async (ctx) => {
 	return {
 		image: (
 			<div tw="flex">
-				{/* <Scoreboard data={data} /> */}
+				<Scoreboard data={data} />
 				<div tw="flex bg-purple-800 text-white w-full h-full justify-center items-center">
 					Rent farcaster storage {inputText}
 				</div>

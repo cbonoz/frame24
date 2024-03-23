@@ -1,0 +1,25 @@
+// [0]   address: '0x4114e33eb831858649ea3702e1c9a2db3f626446',
+// [0]   fname: 'varunsrin.eth',
+// [0]   username: 'v',
+// [0]   fid: 2,
+// [0]   score: 0.11475324316494252,
+// [0]   pfp: 'https://i.seadn.io/gae/sYAr036bd0bRpj7OX6B-F-MqLGznVkK3--DSneL_BT5GX4NZJ3Zu91PgjpD9-xuVJtHq0qirJfPZeMKrahz8Us2Tj_X8qdNPYC-imqs?w=500&auto=format',
+
+import { UserProfile } from '../types';
+
+// [0]   bio: 'Technowatermelon. Elder Millenial. Building Farcaster. \n\nnf.td/varun'
+interface Props {
+	profile?: UserProfile
+}
+
+const RenderProfile = ({ profile }: Props) => {
+  if (!profile) return null;
+
+	return (
+		<div tw="flex">
+			<img src={profile.pfp} alt={profile.username} tw="h-full w-full" />
+		</div>
+	);
+};
+
+export default RenderProfile;

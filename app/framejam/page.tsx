@@ -9,20 +9,23 @@ import {
 	useFramesReducer,
 } from 'frames.js/next/server';
 import Link from 'next/link';
-import { currentURL } from '../lib/utils';
-import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from './../debug';
+import { createFrameUrl, currentURL } from '../lib/utils';
+import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from '../debug';
+import { APP_DESC, APP_NAME, HOME_FRAME } from '../lib/constants';
+import HeaderRow from '../components/Layout';
+import Layout from '../components/Layout';
 
 type State = {
-	searchUsers: boolean;
-	searchTokens: boolean;
+	done: boolean;
 	neighbors: any[];
 	selected: any;
 };
 
-const initialState: State = { started: false, neighbors: [], selected: null };
+const initialState: State = { done: false, neighbors: [], selected: null };
 
 const reducer: FrameReducer<State> = (state, action) => {
 	const buttonIndex = action.postBody?.untrustedData.buttonIndex;
+
 	return {
 		...state,
 		started: true,
@@ -31,7 +34,7 @@ const reducer: FrameReducer<State> = (state, action) => {
 
 // This is a react server component only
 export default async function Home({ params, searchParams }: NextServerPageProps) {
-	const url = currentURL('/framecast');
+	const url = currentURL('/framejam');
 	const previousFrame = getPreviousFrame<State>(searchParams);
 
 	const frameMessage = await getFrameMessage(previousFrame.postBody, {
@@ -59,12 +62,6 @@ export default async function Home({ params, searchParams }: NextServerPageProps
 	}
 	const [state, dispatch] = useFramesReducer<State>(reducer, initialState, previousFrame);
 
-	if (inputText && state.searchUsers) {
-		await getNeigh;
-	}
-
-	const isHome = !state.searchUsers && !state.searchTokens;
-
 	// Here: do a server side side effect either sync or async (using await), such as minting an NFT if you want.
 	// example: load the users credentials & check they have an NFT
 	console.log('info: state is:', state, frameMessage);
@@ -74,16 +71,23 @@ export default async function Home({ params, searchParams }: NextServerPageProps
 		<div>
 			GM user data example. <Link href={createDebugUrl(url)}>Debug</Link>
 			<FrameContainer
-				pathname="/framecast"
-				postUrl="/framecast/frames"
+				pathname={HOME_FRAME}
+				postUrl="/framejam/frames"
 				state={state}
 				previousFrame={previousFrame}
 			>
 				<FrameImage>
-					<HeaderRow profileImage={profileImage} displayName={displayName} />
+					<Layout profileImage={profileImage} displayName={displayName}>
+						<div tw="flex text-xl">{APP_NAME}</div>
+						<div tw="flex text-2xl font-bold">{APP_DESC}</div>
+					</Layout>
 				</FrameImage>
-				<FrameButton>Discover Users</FrameButton>
-				<FrameButton>Discover Users</FrameButton>
+				{/* search params in url */}
+				<FrameButton action="post_redirect" target={createFrameUrl('/discover').toString()}>
+					Discover
+				</FrameButton>
+				<FrameButton>Top</FrameButton>
+				<FrameButton>About</FrameButton>
 			</FrameContainer>
 		</div>
 	);

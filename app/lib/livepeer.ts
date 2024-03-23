@@ -10,8 +10,15 @@ const livepeer = new Livepeer({
 
 export const getPlaybackSourceUrl = async (playbackId: string) => {
 	const playbackInfo = await livepeer.playback.get(playbackId);
-
 	const src = getSrc(playbackInfo.playbackInfo);
-
 	return src;
+};
+
+// const streamData = {
+//   name: "test_stream"
+// };
+export const createStream = async (streamData: { name: string }) => {
+	const stream = await livepeer.stream.create(streamData);
+	console.log('stream created:', stream);
+	return stream;
 };

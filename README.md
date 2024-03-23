@@ -8,9 +8,11 @@ Demo URL:
 
 Demo video:
 
-# Framecast P2P
+# FrameJam P2P
 
-Framecast P2P is a frame app that uses ranked indexes of Farcast users to find trending individuals connected to you and globally. Open a live stream video cast connection request directly from the page.
+Discover and launch collaborative experiences with other Farcasters.
+
+FrameJam is a frame app that uses ranked indexes of Farcast users to find trending individuals connected to you and globally. Open a live stream video cast connection request directly from the page.
 
 Built for the Frameworks 2024 hackathon.
 
@@ -18,7 +20,17 @@ Built for the Frameworks 2024 hackathon.
 
 ## What it does
 
-## How we built it
+Scroll through forecasters on their relevance score. Click yay or nay on a bunch / view details on each, then trigger a live stream creation request.
+
+
+## Technologies used:
+
+* frames.js: foundation of Frame.
+* Karma3: connection ranking and discovery
+* Airstack: social and web3 data for encountered users
+* The graph: index of user content
+* Pinata Frame analytics: user engagement. Find top ranked profiles.
+* Livepeer initiate a stream / broadcast with one click (opens external window).
 
 
 
@@ -37,7 +49,7 @@ Built for the Frameworks 2024 hackathon.
 -
 -
 
-## What's next for Framecast P2P
+## What's next for FrameJam
 -
 -
 -
@@ -45,23 +57,17 @@ Built for the Frameworks 2024 hackathon.
 
 ## Repo structure
 `/` (root): Main web project
-`/methodology`: Methodology and policy for the Greentrace application (linked PR to come)
 
 ## How to run
 
-`yarn; yarn dev`
+1. Copy file from `.env.sample` -> `.env` and fill with your own values
 
-The web project should now be running on port 3000
+2. `yarn; yarn dev`
 
+The frame should now be running on port 3000
 
-## Technology used:
+Debugger on port 3010
 
-* frames.js: foundation
-* Karma3?: connection ranking and discovery
-* Airstack: social and web3 data
-* The graph: index of video content
-* Pinata Frame analytics: user engagement
-* Livepeer initiate a stream / broadcast with one click (opens external window)
 
 
 
