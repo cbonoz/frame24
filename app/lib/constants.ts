@@ -4,6 +4,7 @@ export const APP_NAME = 'FrameJam';
 export const APP_DESC = 'Discover and launch collaborative experiences with other Farcasters.';
 
 export const APP_LOGO = 'https://i.ibb.co/bdqX4M2/logo.png';
+export const APP_HOME_IMG = 'https://i.ibb.co/dPH2jfJ/Screenshot-2024-03-23-at-2-36-16-PM.png'
 export const HEADER_HEIGHT = 60;
 
 export const APP_ABOUT_ITEMS = [
@@ -13,5 +14,3 @@ export const APP_ABOUT_ITEMS = [
 ];
 
 export const HOME_FRAME = '/framejam';
-
-export const ACTION_UPDATE_NEIGHBORS = 'updateNeighbors';

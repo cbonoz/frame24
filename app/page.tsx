@@ -5,7 +5,7 @@ export async function generateMetadata() {
 	return {
 		title: 'My Page',
 		// provide a full URL to your /frames endpoint
-		...(await fetchMetadata(createFrameUrl('/frames'))),
+		...(await fetchMetadata(createFrameUrl('/menu'))),
 	};
 }
 

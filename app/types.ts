@@ -9,3 +9,13 @@ export interface UserProfile {
 		fid?: number;
 		score?: number;
 }
+
+
+export enum FramePage {
+	Menu,
+	Discover,
+	About,
+	ViewInfo,
+	Top,
+	Results,
+}

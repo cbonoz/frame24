@@ -1,5 +1,6 @@
 import { headers } from 'next/headers';
 import { HOME_FRAME } from './constants';
+import { FramePage } from '../types';
 
 export function currentURL(pathname: string): URL {
 	const headersList = headers();
@@ -24,3 +25,9 @@ export const createFrameUrl = (pathname: string) => {
 export const isEmpty = (obj: any) => {
 	return !obj || obj.length === 0;
 };
+
+export const createTargetUrl = (params: any) => {
+	// convert params to query string
+	const searchParams = new URLSearchParams(params);
+	return "?" + searchParams.toString();
+}
