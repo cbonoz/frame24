@@ -12,7 +12,7 @@ const Layout = ({ title, profileImage, displayName, children }: Props) => {
 		<div tw="w-screen flex-col flex h-screen align-top">
 			<div tw="flex w-screen align-top justify-between p-4 border-b-4 border-indigo-500">
 				<span tw="flex">
-					<img tw="flex" src={APP_LOGO} height={HEADER_HEIGHT} width={200} alt="logo" />
+					<img tw="flex" src={APP_LOGO} height={HEADER_HEIGHT} width={240} alt="logo" />
 					&nbsp;
 					{title && <span tw="font-bold px-4 py-1">{title}</span>}
 				</span>

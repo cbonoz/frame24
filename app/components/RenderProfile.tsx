@@ -9,15 +9,22 @@ import { UserProfile } from '../types';
 
 // [0]   bio: 'Technowatermelon. Elder Millenial. Building Farcaster. \n\nnf.td/varun'
 interface Props {
-	profile?: UserProfile
+	profile?: UserProfile;
 }
 
 const RenderProfile = ({ profile }: Props) => {
-  if (!profile) return null;
+	if (!profile) return null;
+
+	const relevanceScore = (profile.score || 0) * 100;
 
 	return (
-		<div tw="flex">
-			<img src={profile.pfp} alt={profile.username} tw="h-full w-full" />
+		<div tw="flex flex-col align-center justify-center">
+			<div tw="flex font-bold">{profile.username}</div>
+			<img src={profile.pfp} alt={profile.username} tw="h-[50] w-[50]" />
+			<div tw="flex text-xl">{profile.fname}</div>
+			<div tw="flex text-xl">{profile.bio}</div>
+			<div tw="flex text-xl">{profile.address}</div>
+			<div tw="flex text-xl">{relevanceScore}</div>
 		</div>
 	);
 };

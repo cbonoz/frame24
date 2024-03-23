@@ -16,6 +16,7 @@ export enum FramePage {
 	Discover,
 	About,
 	ViewInfo,
+	Stream,
 	Top,
 	Results,
 }

@@ -7,6 +7,6 @@ const axiosInstance = axios.create({
 
 // https://docs.karma3labs.com/farcaster/ideas-to-build-using-openrank-apis
 export const getPersonalizedEngagement = async (fids: string[], limit?: number) => {
-	const url = `/scores/personalized/engagement/fids?k=2&limit=${limit || 5}`;
+	const url = `/scores/personalized/engagement/fids?k=2&limit=${limit || 20}`;
 	return axiosInstance.post(url, fids);
 };
