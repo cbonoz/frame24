@@ -8,7 +8,7 @@ const livepeer = new Livepeer({
 	apiKey: LIVE_PEER_KEY,
 });
 
-export const getPlaybackSource = async (playbackId: string) => {
+export const getPlaybackSourceUrl = async (playbackId: string) => {
 	const playbackInfo = await livepeer.playback.get(playbackId);
 
 	const src = getSrc(playbackInfo.playbackInfo);

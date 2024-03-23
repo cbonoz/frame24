@@ -10,11 +10,9 @@ Demo video:
 
 # Framecast P2P
 
-Framecast P2P is a frame app that indexes LivePeer hosted videos on the Graph and displays them in a carousel. When users engage with content, creators can get paid.
+Framecast P2P is a frame app that uses ranked indexes of Farcast users to find trending individuals connected to you and globally. Open a live stream video cast connection request directly from the page.
 
 Built for the Frameworks 2024 hackathon.
-
-
 
 ## Inspiration
 
@@ -56,15 +54,14 @@ Built for the Frameworks 2024 hackathon.
 The web project should now be running on port 3000
 
 
-Technology used:
+## Technology used:
 
 * frames.js: foundation
-* Airstack: social and web3 data for video posters
+* Karma3?: connection ranking and discovery
+* Airstack: social and web3 data
 * The graph: index of video content
-* Live peer: hosted video content
-* Privy?: authentication and access
-* Karma3?: video ranking
-* Pinata Frame analytics: video engagement
+* Pinata Frame analytics: user engagement
+* Livepeer initiate a stream / broadcast with one click (opens external window)
 
 
 

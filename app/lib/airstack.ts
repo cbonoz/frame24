@@ -11,6 +11,7 @@ const airstackKey = requireEnv(process.env.AIRSTACK_API_KEY, 'AIRSTACK_API_KEY')
 
 init(airstackKey);
 
+// https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#getfarcasteruserdetails
 export const getFarcasterUser = async (fid: number) => {
 	const input: FarcasterUserDetailsInput = {
 		fid,

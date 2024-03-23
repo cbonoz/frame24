@@ -15,3 +15,7 @@ export const requireEnv = (value: any, key: string): string => {
 	console.log(`[env] ${key}: ${value.substring(0, 4)}**`);
 	return value;
 };
+
+export const createFrameUrl = (pathname: string) => {
+	return new URL(pathname || '/frames', process.env.VERCEL_URL || 'http://localhost:3000');
+};

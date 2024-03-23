@@ -2656,7 +2656,7 @@ axe-core@=4.7.0:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.7.0.tgz#34ba5a48a8b564f67e103f0aa5768d76e15bbbbf"
   integrity sha512-M0JtH+hlOL5pLQwHOLNYZaXuhqmvS8oExsqB1SBYgA4Dk7u/xx+YdGHXaK5pyUfed5mYXdlYiphWq3G8cRi5JQ==
 
-axios@^1.1.3:
+axios@^1.1.3, axios@^1.6.8:
   version "1.6.8"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz#66d294951f5d988a00e87a0ffb955316a619ea66"
   integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
@@ -4181,7 +4181,7 @@ fraction.js@^4.3.7:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.3.7.tgz#06ca0085157e42fda7f9e726e79fefc4068840f7"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
 
-frames.js@^0.8.4, frames.js@^0.8.5:
+frames.js@^0.8.5:
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/frames.js/-/frames.js-0.8.5.tgz#826ee2262508b5c87c601e1f1b6d8fb1176d1068"
   integrity sha512-J6GASOb4CeTPv8YChKpH9yqzVOyccka8IWzusvrdYkyO88so/78LR0EqJwC04CYKwycaIo7JfpNmVIvO8HYf/A==
@@ -4191,6 +4191,17 @@ frames.js@^0.8.4, frames.js@^0.8.5:
     cheerio "^1.0.0-rc.12"
     protobufjs "^7.2.6"
     viem "^2.7.1"
+
+frames.js@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/frames.js/-/frames.js-0.9.3.tgz#83226e414968a2529d996d5c3f3560655848d288"
+  integrity sha512-E3SOjHJCji7y4jpmuERERnp5LfWFN6pf+38gfD0Y41eEWCUY+qIpD+Rk6lBa8gh/nhB5uXT4oBDf5ug/WgAndw==
+  dependencies:
+    "@farcaster/core" "^0.14.7"
+    "@vercel/og" "^0.6.2"
+    cheerio "^1.0.0-rc.12"
+    protobufjs "^7.2.6"
+    viem "^2.7.8"
 
 fs-constants@^1.0.0:
   version "1.0.0"
@@ -7291,7 +7302,7 @@ viem@^1.0.0, viem@^1.1.4, viem@^1.12.2:
     isows "1.0.3"
     ws "8.13.0"
 
-viem@^2.7.1, viem@^2.7.12, viem@^2.7.14, viem@^2.8.9:
+viem@^2.7.1, viem@^2.7.12, viem@^2.7.14, viem@^2.7.8, viem@^2.8.9:
   version "2.8.18"
   resolved "https://registry.yarnpkg.com/viem/-/viem-2.8.18.tgz#ffb051bf80381ffefc98087a20c177b25463c9f4"
   integrity sha512-Kq3kwkKziJ8rQeLkmdbSLheHDnA+tx2EdLKLmQ3N4FVtjKYjBP9tPL1r+fI6KltVUM1TDOhIHOdslDSp57VMMg==
