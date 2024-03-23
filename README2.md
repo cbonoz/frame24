@@ -72,6 +72,8 @@ Technology used:
 * Dashboard: https://ethglobal.com/events/frameworks/home
 * Sponsors: https://ethglobal.com/events/frameworks
 
+https://docs.pinata.cloud/farcaster/fdk
+
 <!--
 # Frames.js Starter Kit
 
