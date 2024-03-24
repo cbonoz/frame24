@@ -80,7 +80,7 @@ const handleRequest = frames(async (ctx) => {
 			const userData = await getFidUser(activeProfile.fid);
 			activeProfile = { ...activeProfile, ...userData };
 			// round to two decimals
-			activeProfile['score'] = parseScore(activeProfile['score'] || 0);
+			// activeProfile['score'] = parseScore(activeProfile['score'] || 0);
 		}
 		return activeProfile;
 	}
