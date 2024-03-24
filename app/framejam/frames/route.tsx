@@ -128,10 +128,6 @@ const handleRequest = frames(async (ctx) => {
 				if (isAdding && activeProfile) {
 					console.log('adding: ', activeProfile);
 					selected.push(activeProfile);
-					// const untrustedData = { ...frameMessage };
-					// delete untrustedData.state;
-					// take hash of framemessage
-
 					const payload = await ctx.request.json();
 					await trackAddEvent(payload, activeProfile.fid + '');
 				}

@@ -24,7 +24,7 @@ Scroll through forecasters on their relevance score. Click yay or nay on each re
 
 ## Inspiration
 
-On many, social networks, people you should follow sections have been similar for almost 20 years. You see a list of profiles you should follow and you're able to one-click follow them. FrameJam enhances this experience and embeds it using Farcaster frames.
+On many social networks, 'people you should follow' sections have been similar for over 10 years. You see a list of profiles you should follow and you're able to one-click follow them. FrameJam enhances this experience and embeds it using Farcaster frames.
 
 The inspiration behind FrameJam stems from the growing need for real-time collaboration and networking within Farcaster community. As users ourselves, we often want to discover individuals who align with our interests or could potentially contribute to collaborative projects. This inspired us to develop a platform that not only simplifies the process of discovering like-minded individuals but also facilitates seamless collaboration through live streaming capabilities.
 
@@ -119,6 +119,7 @@ https://docs.pinata.cloud/farcaster/fdk
 5. Monetization Strategies: Explore monetization strategies such as premium subscriptions, sponsored content, and targeted advertising to generate revenue while maintaining a positive user experience and value proposition for users.
 
 ### Screenshots
+
 <h2 align="center">About</h2>
 <p align="center">
   <img src="./img/about.png" width="600" style="margin-bottom: 20px;">
