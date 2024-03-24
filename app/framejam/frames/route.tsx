@@ -89,7 +89,7 @@ const handleRequest = frames(async (ctx) => {
 						<Layout profileImage={profileImage} displayName={displayName}>
 							{/* centered */}
 							<div tw="flex flex-col align-center items-center text-center justify-center">
-								<img tw="flex w-[145] h-[40] my-4" src={APP_LOGO} alt="FrameJam Home Image" />
+								<img tw="flex w-[80] h-[20] my-4 pr-2" src={APP_LOGO} alt="FrameJam Home Image" />
 								<div>About</div>
 								{APP_ABOUT_ITEMS.map((item, i) => (
 									<div tw="flex my-2 text-xl w-screen px-12" key={i}>
@@ -171,7 +171,7 @@ const handleRequest = frames(async (ctx) => {
 							View holdings
 						</Button>,
 						<Button action="post" target={createTargetUrl({ page: FramePage.Results })}>
-							Done 🎉
+							Done ✅
 						</Button>,
 						// add done
 					],
@@ -202,13 +202,14 @@ const handleRequest = frames(async (ctx) => {
 
 				const amounts = (holdings as any).map((x: any) => x.amount);
 				const maxAmount = Math.max(...amounts);
+				const layoutTitle = `${activeProfile.fname}'s holdings`;
 
 				return {
 					image: (
-						<Layout title="Holdings" profileImage={profileImage} displayName={displayName}>
+						<Layout title={layoutTitle} profileImage={profileImage} displayName={displayName}>
 							<div tw="flex flex-col p-4">
 								<div tw="flex font-bold pb-2">
-									{activeProfile.username}&apos; most popular ERC20 coin holdings:
+									{activeProfile.username}&apos;s most popular ERC20 coin holdings:
 								</div>
 								<div tw="flex flex-col text-2xl">
 									{(holdings as any).map((holding: any, i: number) => (
@@ -245,12 +246,12 @@ const handleRequest = frames(async (ctx) => {
 											height={HEADER_HEIGHT}
 										/>
 										<span tw="px-2">
-											{profile.username} - {parseFloat(profile.score).toPrecision(2)}% 🍯
+											{profile.username} - {parseFloat(profile.score).toPrecision(2)}% profile match
 										</span>
 									</span>
 								))}
 
-								<div tw="flex py-2">Use the actions below or return to menu.</div>
+								<div tw="flex py-4">Use the actions below or return to menu.</div>
 							</div>
 						</Layout>
 					),
@@ -270,7 +271,7 @@ const handleRequest = frames(async (ctx) => {
 							Back to menu 🏠
 						</Button>,
 					],
-					textInput: 'Enter a group or stream group name',
+					textInput: 'Enter stream name or message',
 				};
 
 			case FramePage.Stream:
@@ -279,7 +280,7 @@ const handleRequest = frames(async (ctx) => {
 				let streamName = inputText || `${displayName}'s ${APP_NAME}`;
 				// if stream not in name then add it
 
-				if (streamName.toLowerCase().indexOf('stream') !== -1) {
+				if (streamName.toLowerCase().indexOf('stream') === -1) {
 					streamName = `${streamName} stream`;
 				}
 				const streamData = await createStream({ name: streamName });
@@ -290,17 +291,17 @@ const handleRequest = frames(async (ctx) => {
 					image: (
 						<Layout title="Stream" profileImage={profileImage} displayName={displayName}>
 							<div tw="flex flex-col p-4">
-								<div tw="flex font-bold text-green-500">Your stream has been created!</div>
+								<div tw="flex font-bold text-green-500 py-2">Your stream has been created!</div>
 								<div tw="flex">Stream name: {streamData.name}</div>
 								<div tw="flex">Stream key: {streamData.streamKey}</div>
 								<div tw="flex">
-									Stream url:
+									Stream url:&nbsp;
 									<a href={streamUrl} target="_blank" rel="noreferrer" tw="underline text-blue-500">
 										{streamUrl}
 									</a>
 								</div>
 								{/* selected */}
-								<div tw="flex">Use this stream on Farcaster</div>
+								<div tw="flex py-2">Share this stream on Farcaster</div>
 							</div>
 						</Layout>
 					),
@@ -325,20 +326,20 @@ const handleRequest = frames(async (ctx) => {
 				return {
 					image: (
 						<Layout profileImage={profileImage} displayName={displayName}>
-							<div tw="flex w-fit	h-fit">
-								<img tw="flex w-full h-full" src={APP_HOME_IMG} alt="FrameJam Home Image" />
+							<div tw="flex items-center justify-center">
+								<img tw="flex w-[140] h-[120] pt-8" src={APP_HOME_IMG} alt="FrameJam Home Image" />
 							</div>
 						</Layout>
 					),
 					buttons: [
 						<Button action="post" target={createTargetUrl({ page: FramePage.Discover })}>
-							Discover
+							Discover 🕵️‍♂️
 						</Button>,
-						<Button action="post" target={createTargetUrl({ page: FramePage.Top })}>
-							Top
-						</Button>,
+						// <Button action="post" target={createTargetUrl({ page: FramePage.Top })}>
+						// 	Top
+						// </Button>,
 						<Button action="post" target={createTargetUrl({ page: FramePage.About })}>
-							About
+							About ℹ️
 						</Button>,
 					],
 				};
