@@ -270,7 +270,7 @@ const handleRequest = frames(async (ctx) => {
 							Save list 📝
 						</Button>,
 						<Button action="post" target={createTargetUrl({ page: FramePage.Stream })}>
-							Start a meeting 🎥
+							Create meeting url 🎥
 						</Button>,
 						<Button action="post" target={createTargetUrl({ page: FramePage.Menu })}>
 							Back to menu 🏠

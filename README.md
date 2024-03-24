@@ -32,7 +32,7 @@ When a user is scrolling, he/she can connect with the top Farcaster accounts and
 
 ## How it works
 
-Our project incorporates a variety of technologies to enhance the social networking experience. Frames.js serves as the foundational framework, enabling rapid prototyping and development while ensuring seamless rendering of dynamic content and managing user interactions with Farcaster accounts. The app is deployed on Vercel using NextJS and serverless API routes.
+Our project incorporates a variety of technologies to enhance the social networking experience. Frames.js serves as the foundational framework, enabling rapid prototyping and development while ensuring seamless rendering of dynamic content and managing user interactions with Farcaster accounts.
 
 Powering connection ranking and discovery, Karma3 APIs are used to provide personalized recommendations based on user behavior, enhancing usability and fostering meaningful connections. Leveraging social and web3 data integration,
 
@@ -52,7 +52,7 @@ Finally, Livepeer facilitates one-click stream initiation, seambdwlessly integra
 
 - <b>Karma3</b>: Powering connection ranking and discovery, Karma3 employs sophisticated algorithms to provide personalized recommendations based on user behavior, enhancing usability and fostering meaningful connections.
 
-- <b>Pinata Frame Analytics and information API: Tracking user engagement metrics, Pinata Frame Analytics provides valuable insights into user behavior, empowering data-driven decision-making and continuous platform optimization. The Pinata API is also used to hydrate the active user's authentication/Farcaster data.
+- <b>Pinata API and Analytics</b>: Tracking user engagement metrics, Pinata Frame Analytics provides valuable insights into user behavior, empowering data-driven decision-making and continuous platform optimization. The Pinata API is also used to hydrate the active user's authentication/Farcaster data.
 
 - <b>Airstack</b>: Leveraging social and web3 data integration, Airstack enriches user encounters by providing deeper insights into individuals' online presence, fostering transparency and authenticity in interactions.
 
