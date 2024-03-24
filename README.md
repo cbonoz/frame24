@@ -30,7 +30,6 @@ The inspiration behind FrameJam stems from the growing need for real-time collab
 
 When a user is scrolling, he/she can connect with the top Farcaster accounts and broaden their own networks in the process.
 
-
 ## How it works
 
 Our project incorporates a variety of technologies to enhance the social networking experience. Frames.js serves as the foundational framework, enabling rapid prototyping and development while ensuring seamless rendering of dynamic content and managing user interactions with Farcaster accounts. The app is deployed on Vercel using NextJS and serverless API routes.
@@ -42,6 +41,7 @@ Airstack enriches user encounters by providing deeper insights into individuals'
 Finally, Livepeer facilitates one-click stream initiation, seambdwlessly integrating real-time communication capabilities to ensure high-quality and uninterrupted live streams for dynamic collaboration experiences.
 
 ### Example of matching profile on FrameJam
+
 <p align='center'>
   <img src='./img/profile.png' alt='profile' width=400 />
 </p>
@@ -102,9 +102,9 @@ Debugger on port 3010.
 
 https://docs.pinata.cloud/farcaster/fdk
 
-### Future work
+### Potential Future work
 
-1. Enhanced Recommendation Algorithm: Implement machine learning techniques to improve the recommendation algorithm, considering factors such as user engagement, content similarity, and collaborative filtering to deliver more accurate and personalized suggestions.
+1. Enhanced Recommendation Algorithm: Implement additional ranking methods to expand on profile recommendation logic, considering factors such as user engagement, content similarity, and collaborative filtering to deliver more accurate and personalized suggestions.
 
 2. Social Integration: Integrate with popular social media platforms to allow users to import their social network connections, enriching the discovery process and facilitating connections with friends and acquaintances.
 
@@ -114,54 +114,54 @@ https://docs.pinata.cloud/farcaster/fdk
 
 5. Monetization Strategies: Explore monetization strategies such as premium subscriptions, sponsored content, and targeted advertising to generate revenue while maintaining a positive user experience and value proposition for users.
 
-### Images
+### Screenshots
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.52.11%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.52.11%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.35.41%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.35.41%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.37.02%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.37.02%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.37.12%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.37.12%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.51.46%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.51.46%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.51.59%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.51.59%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.51.39%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.51.39%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.34.55%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.34.55%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.39.56%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.39.56%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.47.33%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.47.33%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.37.18%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.37.18%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <p align="center">
-  <img src="Screenshot%202024-03-23%20at%209.52.14%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/Screenshot%202024-03-23%20at%209.52.14%20PM" width="600" style="margin-bottom: 20px;">
 </p>
 
 <!--
