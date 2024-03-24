@@ -6,7 +6,7 @@
 
 Discover and launch collaborative experiences with other Farcasters.
 
-FrameJam is a frame app that uses ranked indexes of Farcast users to find trending individuals connected to you and globally. Open a live stream video cast connection request directly from the page.
+FrameJam is a frame app that uses ranked indexes of Farcast users to find trending individuals connected to you and globally.
 
 Built for the Frameworks 2024 hackathon.
 
@@ -23,6 +23,18 @@ Scroll through forecasters on their relevance score. Click yay or nay on each re
 
 The inspiration behind FrameJam stemmed from the growing need for real-time collaboration and connection within the Farcast community. As avid users ourselves, we often found it challenging to discover individuals who align with our interests or could potentially contribute to collaborative projects. This inspired us to develop a platform that not only simplifies the process of discovering like-minded individuals but also facilitates seamless collaboration through live streaming capabilities.
 
+When a user is scrolling, he/she can connect with the top Farcaster accounts and broader their own networks in the process.
+
+## How it works
+
+Our project incorporates a variety of technologies to enhance the social networking experience. Frames.js serves as the foundational framework, enabling rapid prototyping and development while ensuring seamless rendering of dynamic content and managing user interactions with Farcaster accounts. The app is deployed on Vercel using NextJS and serverless API routes.
+
+Powering connection ranking and discovery, Karma3 APIs are used to provide personalized recommendations based on user behavior, enhancing usability and fostering meaningful connections. Leveraging social and web3 data integration,
+
+Airstack enriches user encounters by providing deeper insights into individuals' ERC20 currency holdings, fostering transparency and authenticity in interactions and potential interest overlap.. Pinata Frame Analytics tracks user engagement metrics, providing valuable insights into user behavior and empowering data-driven decision-making and continuous platform optimization.
+
+Finally, Livepeer facilitates one-click stream initiation, seambdwlessly integrating real-time communication capabilities to ensure high-quality and uninterrupted live streams for dynamic collaboration experiences.
+
 ## Technologies used:
 
 - Frames.js: Utilized as the foundational framework, frames.js enables rapid prototyping and development while ensuring seamless rendering of dynamic content and managing user interactions. The app is deployed on Vercel using Vercel serverless functions and API responses.
@@ -31,7 +43,7 @@ The inspiration behind FrameJam stemmed from the growing need for real-time coll
 
 - Airstack: Leveraging social and web3 data integration, Airstack enriches user encounters by providing deeper insights into individuals' online presence, fostering transparency and authenticity in interactions.
 
-- Pinata Frame Analytics and API: Tracking user engagement metrics, Pinata Frame Analytics provides valuable insights into user behavior, empowering data-driven decision-making and continuous platform optimization. The Pinata API is also used to hydrate the active user's authencation/Farcaster data.
+- Pinata Frame Analytics and API: Tracking user engagement metrics, Pinata Frame Analytics provides valuable insights into user behavior, empowering data-driven decision-making and continuous platform optimization. The Pinata API is also used to hydrate the active user's authentication/Farcaster data.
 
 - Livepeer: Facilitating one-click stream initiation, Livepeer seamlessly integrates real-time communication capabilities, ensuring high-quality and uninterrupted live streams for dynamic collaboration experiences.
 
@@ -81,6 +93,7 @@ Debugger on port 3010.
 https://docs.pinata.cloud/farcaster/fdk
 
 ### Future work
+
 1. Enhanced Recommendation Algorithm: Implement machine learning techniques to improve the recommendation algorithm, considering factors such as user engagement, content similarity, and collaborative filtering to deliver more accurate and personalized suggestions.
 
 2. Social Integration: Integrate with popular social media platforms to allow users to import their social network connections, enriching the discovery process and facilitating connections with friends and acquaintances.
@@ -90,7 +103,6 @@ https://docs.pinata.cloud/farcaster/fdk
 4. Community Building Initiatives: Launch community-building initiatives such as forums, discussion boards, and virtual events to foster engagement, facilitate knowledge sharing, and strengthen the sense of belonging among users.
 
 5. Monetization Strategies: Explore monetization strategies such as premium subscriptions, sponsored content, and targeted advertising to generate revenue while maintaining a positive user experience and value proposition for users.
-
 
 ### Images
 
@@ -141,7 +153,6 @@ https://docs.pinata.cloud/farcaster/fdk
 <p align="center">
   <img src="Screenshot%202024-03-23%20at%209.52.14%20PM" width="600" style="margin-bottom: 20px;">
 </p>
-
 
 <!--
 # Frames.js Starter Kit

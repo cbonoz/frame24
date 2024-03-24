@@ -13,12 +13,17 @@ export const getFidUser = async (fid: number) => {
 	return userData;
 };
 
-export const trackAddEvent = async (frameData: any, fid: string) => {
-	console.log('trackAddEvent', frameData, fid)//, credentials)
+export const trackAddEvent = async (data: any, fid: string) => {
+	const body = {
+		"custom_id": fid,
+		"frame_id": APP_NAME,
+		data,
+	}
+	console.log('trackAddEvent', body)//, credentials)
 	const options = {
 		method: 'POST',
 		headers: {Authorization: 'Bearer ' + credentials.pinata_jwt, 'Content-Type': 'application/json'},
-		body: JSON.stringify(frameData)
+		body: JSON.stringify(body)
 	  };
 	  
 	  return fetch('https://api.pinata.cloud/farcaster/frames/interactions', options)
