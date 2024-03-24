@@ -16,7 +16,7 @@ Frame demo URL: https://framejam.vercel.app/framejam/frames
 
 Warpcast embed url: <a href="https://warpcast.com/~/developers/frames?url=https%3A%2F%2Fframejam.vercel.app%2Fframejam%2Fframes" target="_blank">Warpcast dev link</a>
 
-Demo video:
+Demo video: https://youtu.be/MErr5IpvOs0
 
 ## What it does
 
@@ -51,15 +51,15 @@ Finally, Livepeer facilitates one-click stream initiation, seambdwlessly integra
 
 ## Technologies used:
 
-- <b>Frames.js</b>: Utilized as the foundational framework, frames.js enables rapid prototyping and development while ensuring seamless rendering of dynamic content and managing user interactions. The app is deployed on Vercel using Vercel serverless functions and API responses.
+- <b>Frames.js</b>: Frames.js enables rapid prototyping and development while ensuring rendering of dynamic content and managing the profile discovery journey. The app is built and deployed on Vercel using Vercel serverless functions and API responses. Frames.js was the base framework for building FrameJam.
 
 - <b>Karma3</b>: Powering connection ranking and discovery, Karma3 employs sophisticated algorithms to provide personalized recommendations based on user behavior, enhancing usability and fostering meaningful connections.
 
-- <b>Pinata API and Analytics</b>: Tracking user engagement metrics, Pinata Frame Analytics provides valuable insights into user behavior, empowering data-driven decision-making and continuous platform optimization. The Pinata API is also used to hydrate the active user's authentication/Farcaster data.
+- <b>Pinata API and Analytics</b>: Both Pinata analytics and the core API's are used in FrameJam Pinata Frame Analytics provides valuable insights into user behavior, empowering data-driven decision-making and continuous platform optimization. Every add of a profile is tracked and the most popular users based on adds can be used to improve rankings. The Pinata API is also used to hydrate the active user's authentication/Farcaster data in the profile visuals.
 
 - <b>Airstack</b>: Leveraging social and web3 data integration, Airstack enriches user encounters by providing deeper insights into individuals' online presence, fostering transparency and authenticity in interactions.
 
-- <b>Livepeer</b>: Facilitating one-click stream initiation, Livepeer seamlessly integrates real-time communication capabilities, ensuring high-quality and uninterrupted live streams for dynamic collaboration experiences.
+- <b>Livepeer</b>: Facilitating one-click stream initiation, Livepeer seamlessly integrates real-time communication capabilities, ensuring high-quality and uninterrupted live streams for dynamic collaboration experiences. Livepeer stream SDK is used to create dynamic stream URLs that can be opened directly from the frame and/or shared on Farcaster.
 
 <!-- - frames.js: foundation of Frame.
 - Karma3: connection ranking and discovery
