@@ -12,7 +12,10 @@ Built for the Frameworks 2024 hackathon.
 
 ---
 
-Frame URL: https://framejam.vercel.app/framejam/frames
+Frame demo URL: https://framejam.vercel.app/framejam/frames
+
+Warpcast embed url: <a href="https://warpcast.com/~/developers/frames?url=https%3A%2F%2Fframejam.vercel.app%2Fframejam%2Fframes" target="_blank">Warpcast dev link</a>
+
 Demo video:
 
 ## What it does
@@ -21,9 +24,11 @@ Scroll through forecasters on their relevance score. Click yay or nay on each re
 
 ## Inspiration
 
-The inspiration behind FrameJam stemmed from the growing need for real-time collaboration and connection within the Farcast community. As avid users ourselves, we often found it challenging to discover individuals who align with our interests or could potentially contribute to collaborative projects. This inspired us to develop a platform that not only simplifies the process of discovering like-minded individuals but also facilitates seamless collaboration through live streaming capabilities.
+On many, social networks, people you should follow sections have been similar for almost 20 years. You see a list of profiles you should follow and you're able to one-click follow them. FrameJam enhances this experience and embeds it using Farcaster frames.
 
-When a user is scrolling, he/she can connect with the top Farcaster accounts and broader their own networks in the process.
+The inspiration behind FrameJam stems from the growing need for real-time collaboration and networking within Farcaster community. As users ourselves, we often want to discover individuals who align with our interests or could potentially contribute to collaborative projects. This inspired us to develop a platform that not only simplifies the process of discovering like-minded individuals but also facilitates seamless collaboration through live streaming capabilities.
+
+When a user is scrolling, he/she can connect with the top Farcaster accounts and broaden their own networks in the process.
 
 ## How it works
 

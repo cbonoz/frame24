@@ -39,6 +39,16 @@ export const abbreviate = (str: string, maxLength: number): string => {
 	return str;
 }
 
+export const warpedUrl = (fname: string): string => {
+	return `https://warpcast.com/${fname}`
+}
+
+export const parseScore = (score?: number): number => {
+	return Number(
+		parseFloat((score || 0) * 100 + '').toFixed(2)
+	);
+}
+
 export function jsonToCommaSeparatedStrings(jsonObjects: any) {
 	if (isEmpty(jsonObjects)) {
 		return []

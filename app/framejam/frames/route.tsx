@@ -16,6 +16,7 @@ import {
 import {
 	createTargetUrl,
 	jsonToCommaSeparatedStrings,
+	parseScore,
 	printSymbolProportionalTimesRoundingUp,
 } from '../../lib/utils';
 import { getPersonalizedEngagement } from '../../lib/karma';
@@ -53,7 +54,7 @@ const handleRequest = frames(async (ctx) => {
 	// });
 	const { message: frameMessage } = ctx;
 
-	console.log('url', ctx.url);
+	// console.log('url', ctx.url);
 	// console.log('ctx', ctx);
 
 	// untrusted data
@@ -72,12 +73,14 @@ const handleRequest = frames(async (ctx) => {
 	} = frameMessage || {};
 
 	const { profileImage, displayName, bio } = requesterUserData || {};
+	console.log('userData', requesterUserData);
 
 	async function getFullProfile(activeProfile: UserProfile): Promise<UserProfile> {
 		if (activeProfile.fid) {
 			const userData = await getFidUser(activeProfile.fid);
 			activeProfile = { ...activeProfile, ...userData };
-			activeProfile['score'] = (activeProfile['score'] || 0) * 100;
+			// round to two decimals
+			activeProfile['score'] = parseScore(activeProfile['score'] || 0);
 		}
 		return activeProfile;
 	}
@@ -114,10 +117,7 @@ const handleRequest = frames(async (ctx) => {
 				console.log('discover', requesterFid, activeIndex);
 				if (requesterFid) {
 					try {
-						const { data } = await getPersonalizedEngagement([requesterFid.toString()]);
-						const result = data?.result;
-						neighbors = result || [];
-
+						neighbors = await getPersonalizedEngagement([requesterFid.toString()]);
 						activeProfile = await getFullProfile(neighbors[activeIndex]);
 					} catch (e) {
 						console.error('error:', e);
@@ -193,9 +193,7 @@ const handleRequest = frames(async (ctx) => {
 				}
 				let fid = activeProfile?.fid;
 				if (!fid) {
-					const { data } = await getPersonalizedEngagement([requesterFid as any]);
-					const result = data?.result;
-					neighbors = result || [];
+					neighbors = await getPersonalizedEngagement([requesterFid as any]);
 					activeProfile = await getFullProfile(neighbors[activeIndex]);
 					fid = activeProfile.fid;
 				}
@@ -253,7 +251,7 @@ const handleRequest = frames(async (ctx) => {
 											height={HEADER_HEIGHT}
 										/>
 										<span tw="px-2">
-											{profile.username} - {parseFloat(profile.score).toPrecision(2)}% profile match
+											{profile.username} - {profile.score}% profile match
 										</span>
 									</span>
 								))}
@@ -281,7 +279,7 @@ const handleRequest = frames(async (ctx) => {
 					textInput: 'Enter stream name or message',
 					state: {
 						...ctx.state,
-					}
+					},
 				};
 
 			case FramePage.Stream:
@@ -328,7 +326,7 @@ const handleRequest = frames(async (ctx) => {
 					],
 					state: {
 						...ctx.state,
-					}
+					},
 				};
 			case FramePage.SaveList:
 				// render results(selected) as comma separated list
@@ -356,7 +354,7 @@ const handleRequest = frames(async (ctx) => {
 					],
 					state: {
 						...ctx.state,
-					}
+					},
 				};
 			default:
 				return {
