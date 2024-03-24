@@ -49,7 +49,7 @@ export const parseScore = (score?: number): number => {
 	);
 }
 
-export function jsonToCommaSeparatedStrings(jsonObjects: any) {
+export function jsonToCommaSeparatedStrings(jsonObjects: any[]) {
 	if (isEmpty(jsonObjects)) {
 		return []
 	}

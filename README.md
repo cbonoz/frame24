@@ -87,11 +87,11 @@ FrameJam is open source, live, and deployed on vercel.
 
 ## Repo structure
 
-`/` (root): Main web project
+`/` (root): Main frame project. Commands should be run from the root level folder.
 
 ## How to run
 
-1. Copy file from `.env.sample` -> `.env` and fill with your own values
+1. Copy file from `.env.sample` -> `.env` and fill with your own values / API keys for FrameJam to build.
 
 2. `yarn; yarn dev`
 
