@@ -14,7 +14,7 @@ export const getFidUser = async (fid: number) => {
 };
 
 export const trackAddEvent = async (frameData: any, fid: string) => {
-	console.log('trackAddEvent', frameData, fid, credentials)
+	console.log('trackAddEvent', frameData, fid)//, credentials)
 	const options = {
 		method: 'POST',
 		headers: {Authorization: 'Bearer ' + credentials.pinata_jwt, 'Content-Type': 'application/json'},

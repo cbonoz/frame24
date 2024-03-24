@@ -20,6 +20,7 @@ import RenderProfile from '../../components/RenderProfile';
 import { isEmpty } from 'livepeer/dist/internal/utils';
 import { getBalances } from '../../lib/airstack';
 import { get } from 'http';
+import { createStream, createStreamUrl } from '../../lib/livepeer';
 
 const frames = createFrames({
 	basePath: '/framejam/frames',
@@ -52,7 +53,6 @@ const handleRequest = frames(async (ctx) => {
 	// console.log('ctx', ctx);
 
 	// untrusted data
-
 	const {
 		isValid,
 		buttonIndex,
@@ -124,11 +124,12 @@ const handleRequest = frames(async (ctx) => {
 				if (isAdding && activeProfile) {
 					console.log('adding: ', activeProfile);
 					selected.push(activeProfile);
-					const untrustedData = { ...frameMessage };
-					delete untrustedData.state;
+					// const untrustedData = { ...frameMessage };
+					// delete untrustedData.state;
 					// take hash of framemessage
-					const trustedData = { messageBytes: '' };
-					await trackAddEvent({ untrustedData, trustedData }, activeProfile.fid + '');
+
+					const payload = await ctx.request.json();
+					await trackAddEvent(payload, activeProfile.fid + '');
 				}
 
 				const title = `Discover ${activeIndex + 1}/${neighbors.length} profiles`;
@@ -183,7 +184,10 @@ const handleRequest = frames(async (ctx) => {
 				};
 
 			case FramePage.ViewInfo:
-				let fid = ctx.state.active?.fid;
+				if (!activeProfile) {
+					activeProfile = ctx.state.active;
+				}
+				let fid = activeProfile?.fid;
 				if (!fid) {
 					const { data } = await getPersonalizedEngagement([requesterFid as any]);
 					const result = data?.result;
@@ -192,7 +196,7 @@ const handleRequest = frames(async (ctx) => {
 					fid = activeProfile.fid;
 				}
 
-				let { data: holdings } = await getBalances(fid);
+				let { data: holdings } = await getBalances(fid as any);
 				// sorted desc by amount
 				holdings = (holdings || []).sort((a: any, b: any) => b.amount - a.amount);
 
@@ -203,8 +207,10 @@ const handleRequest = frames(async (ctx) => {
 					image: (
 						<Layout title="Holdings" profileImage={profileImage} displayName={displayName}>
 							<div tw="flex flex-col p-4">
-								<div tw="flex">{activeProfile.username}'s holdings:</div>
-								<div tw="flex flex-col text-xl">
+								<div tw="flex font-bold pb-2">
+									{activeProfile.username}'s most popular ERC20 coin holdings:
+								</div>
+								<div tw="flex flex-col text-2xl">
 									{(holdings as any).map((holding: any, i: number) => (
 										<div tw="flex flex-col" key={i}>
 											{holding.name} {holding.amount}{' '}
@@ -217,7 +223,7 @@ const handleRequest = frames(async (ctx) => {
 					),
 					buttons: [
 						<Button action="post" target={createTargetUrl({ page: FramePage.Discover })}>
-							Back
+							Resume profile search
 						</Button>,
 					],
 				};
@@ -239,12 +245,12 @@ const handleRequest = frames(async (ctx) => {
 											height={HEADER_HEIGHT}
 										/>
 										<span tw="px-2">
-											{profile.username} - Match {profile.score}% 🍯
+											{profile.username} - {parseFloat(profile.score).toPrecision(2)}% 🍯
 										</span>
 									</span>
 								))}
 
-								<div tw="flex">Use the actions below or return to menu</div>
+								<div tw="flex py-2">Use the actions below or return to menu.</div>
 							</div>
 						</Layout>
 					),
@@ -252,22 +258,70 @@ const handleRequest = frames(async (ctx) => {
 						<Button
 							action="post"
 							target={createTargetUrl({
-								page: FramePage.Discover,
-								add: true,
+								page: FramePage.SaveList,
 							})}
 						>
 							Save list 📝
 						</Button>,
 						<Button action="post" target={createTargetUrl({ page: FramePage.Stream })}>
-							Share video 🎥
+							Start a meeting 🎥
 						</Button>,
 						<Button action="post" target={createTargetUrl({ page: FramePage.Menu })}>
 							Back to menu 🏠
 						</Button>,
 					],
-					textInput: 'Enter a message',
+					textInput: 'Enter a group or stream group name',
+				};
+
+			case FramePage.Stream:
+				// get name from text input
+				// const name = ctx.searchParams.name || 'FrameJam';
+				let streamName = inputText || `${displayName}'s ${APP_NAME}`;
+				// if stream not in name then add it
+
+				if (streamName.toLowerCase().indexOf('stream') !== -1) {
+					streamName = `${streamName} stream`;
+				}
+				const streamData = await createStream({ name: streamName });
+
+				const streamUrl = createStreamUrl(streamData.streamKey);
+
+				return {
+					image: (
+						<Layout title="Stream" profileImage={profileImage} displayName={displayName}>
+							<div tw="flex flex-col p-4">
+								<div tw="flex font-bold text-green-500">Your stream has been created!</div>
+								<div tw="flex">Stream name: {streamData.name}</div>
+								<div tw="flex">Stream key: {streamData.streamKey}</div>
+								<div tw="flex">
+									Stream url:
+									<a href={streamUrl} target="_blank" rel="noreferrer" tw="underline text-blue-500">
+										{streamUrl}
+									</a>
+								</div>
+								{/* selected */}
+								<div tw="flex">Use this stream on Farcaster</div>
+							</div>
+						</Layout>
+					),
+					buttons: [
+						<Button action="post" target={createTargetUrl({ page: FramePage.Results })}>
+							Back to results
+						</Button>,
+						<Button action="post" target={createTargetUrl({ page: FramePage.Menu })}>
+							Back to menu 🏠
+						</Button>,
+						<Button action="link" target={streamUrl}>
+							Open stream
+						</Button>,
+					],
 				};
 			default:
+				if (framePage === FramePage.SaveList) {
+					// print the json selected list as a csv in an alert modal
+					const csv = JSON.stringify(selected, null, 2);
+					alert(csv);
+				}
 				return {
 					image: (
 						<Layout profileImage={profileImage} displayName={displayName}>

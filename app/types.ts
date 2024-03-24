@@ -12,6 +12,7 @@ export interface UserProfile {
 
 
 export enum FramePage {
+	SaveList,
 	Menu,
 	Discover,
 	About,
