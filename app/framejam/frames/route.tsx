@@ -19,6 +19,7 @@ import { getFidUser, trackAddEvent } from '../../lib/pinata';
 import RenderProfile from '../../components/RenderProfile';
 import { isEmpty } from 'livepeer/dist/internal/utils';
 import { getBalances } from '../../lib/airstack';
+import { get } from 'http';
 
 const frames = createFrames({
 	basePath: '/framejam/frames',
@@ -26,6 +27,7 @@ const frames = createFrames({
 		framePage: FramePage.Menu,
 		activeIndex: 0,
 		selected: [] as any[],
+		active: {} as any,
 	},
 	/*   middleware:*/
 
@@ -47,7 +49,7 @@ const handleRequest = frames(async (ctx) => {
 	const { message: frameMessage } = ctx;
 
 	console.log('url', ctx.url);
-	console.log('ctx', ctx);
+	// console.log('ctx', ctx);
 
 	// untrusted data
 
@@ -67,7 +69,18 @@ const handleRequest = frames(async (ctx) => {
 
 	const { profileImage, displayName, bio } = requesterUserData || {};
 
+	async function getFullProfile(activeProfile: UserProfile): Promise<UserProfile> {
+		if (activeProfile.fid) {
+			const userData = await getFidUser(activeProfile.fid);
+			activeProfile = { ...activeProfile, ...userData };
+			activeProfile['score'] = (activeProfile['score'] || 0) * 100;
+		}
+		return activeProfile;
+	}
+
 	// Select page.
+	let neighbors = [];
+	let activeProfile: UserProfile = {};
 	try {
 		switch (framePage) {
 			case FramePage.About:
@@ -94,31 +107,28 @@ const handleRequest = frames(async (ctx) => {
 				};
 
 			case FramePage.Discover:
-				let neighbors = [];
-				let active: UserProfile = {};
 				console.log('discover', requesterFid, activeIndex);
 				if (requesterFid) {
 					try {
 						const { data } = await getPersonalizedEngagement([requesterFid.toString()]);
 						const result = data?.result;
 						neighbors = result || [];
-						active = neighbors[activeIndex];
-						if (active.fid) {
-							const userData = await getFidUser(active.fid);
-							active = { ...active, ...userData };
-							active['score'] = (active['score'] || 0) * 100;
-						}
-						console.log('data', active);
+
+						activeProfile = await getFullProfile(neighbors[activeIndex]);
 					} catch (e) {
 						console.error('error:', e);
 					}
 				}
 
 				const isAdding = ctx.searchParams.add === 'true';
-				if (isAdding && active) {
-					console.log('adding: ', active);
-					selected.push(active);
-					await trackAddEvent(frameMessage, active.fid + '');
+				if (isAdding && activeProfile) {
+					console.log('adding: ', activeProfile);
+					selected.push(activeProfile);
+					const untrustedData = { ...frameMessage };
+					delete untrustedData.state;
+					// take hash of framemessage
+					const trustedData = { messageBytes: '' };
+					await trackAddEvent({ untrustedData, trustedData }, activeProfile.fid + '');
 				}
 
 				const title = `Discover ${activeIndex + 1}/${neighbors.length} profiles`;
@@ -127,8 +137,8 @@ const handleRequest = frames(async (ctx) => {
 						<Layout title={title} profileImage={profileImage} displayName={displayName}>
 							<div tw="flex bg-indigo-500 text-white w-full pt-8 pb-16 justify-center">
 								{/* <div tw="flex text-2xl font-bold">Discover {requesterFid}</div> */}
-								{!isEmpty(active.pfp) && <RenderProfile profile={active} />}
-								{isEmpty(active.pfp) && (
+								{!isEmpty(activeProfile.pfp) && <RenderProfile profile={activeProfile} />}
+								{isEmpty(activeProfile.pfp) && (
 									<div tw="flex text-2xl font-bold">
 										No more profiles found. Come back later for more results!
 									</div>
@@ -168,25 +178,37 @@ const handleRequest = frames(async (ctx) => {
 						...ctx.state,
 						selected,
 						activeIndex: activeIndex + 1,
+						active: activeProfile,
 					},
 				};
 
 			case FramePage.ViewInfo:
-				const holdings = await getBalances(requesterFid as number);
+				let fid = ctx.state.active?.fid;
+				if (!fid) {
+					const { data } = await getPersonalizedEngagement([requesterFid as any]);
+					const result = data?.result;
+					neighbors = result || [];
+					activeProfile = await getFullProfile(neighbors[activeIndex]);
+					fid = activeProfile.fid;
+				}
 
-				const amounts = (holdings as any).map((x) => x.amount);
+				let { data: holdings } = await getBalances(fid);
+				// sorted desc by amount
+				holdings = (holdings || []).sort((a: any, b: any) => b.amount - a.amount);
+
+				const amounts = (holdings as any).map((x: any) => x.amount);
 				const maxAmount = Math.max(...amounts);
 
 				return {
 					image: (
 						<Layout title="Holdings" profileImage={profileImage} displayName={displayName}>
 							<div tw="flex flex-col p-4">
-								<div tw="flex font-bold">Holdings:</div>
-								<div tw="flex">
+								<div tw="flex">{activeProfile.username}'s holdings:</div>
+								<div tw="flex flex-col text-xl">
 									{(holdings as any).map((holding: any, i: number) => (
-										<div tw="flex" key={i}>
-											{holding.symbol} {holding.amount}{' '}
-											{printSymbolProportionalTimesRoundingUp(holding.amount, maxAmount, '🍯', 10)}
+										<div tw="flex flex-col" key={i}>
+											{holding.name} {holding.amount}{' '}
+											{printSymbolProportionalTimesRoundingUp(holding.amount, maxAmount, '🍯', 20)}
 										</div>
 									))}
 								</div>
@@ -217,7 +239,7 @@ const handleRequest = frames(async (ctx) => {
 											height={HEADER_HEIGHT}
 										/>
 										<span tw="px-2">
-											{profile.username} {profile.score} 🍯
+											{profile.username} - Match {profile.score}% 🍯
 										</span>
 									</span>
 								))}

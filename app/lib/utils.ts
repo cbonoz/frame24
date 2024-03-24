@@ -34,7 +34,11 @@ export const createTargetUrl = (params: any) => {
 
 export const printSymbolProportionalTimesRoundingUp = (amount, maxAmount, symbol, maxLength) => {
 	const proportionalAmount = Math.ceil(amount / maxAmount * maxLength);
-	return symbol.repeat(proportionalAmount);
+	let result = ''
+	for (let i = 0; i < proportionalAmount; i++) {
+		result += symbol
+	}
+	return result
 }
 
 

@@ -4,6 +4,7 @@ import {
 	FarcasterUserDetailsOutput,
 	getFarcasterUserERC20Balances,
 	FarcasterUserERC20BalancesOutput,
+	TokenBlockchain,
 } from '@airstack/frames';
 
 import { init } from '@airstack/frames';
@@ -30,7 +31,8 @@ export const getFarcasterUser = async (fid: number) => {
 export const getBalances = (fid: number): Promise<FarcasterUserERC20BalancesOutput> => {
 const input = {
 	fid,
-	limit: 100,
+	chains: [TokenBlockchain.Ethereum],
+	limit: 10,
   };
 
   return getFarcasterUserERC20Balances(input);
