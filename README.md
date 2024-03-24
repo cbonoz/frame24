@@ -30,6 +30,7 @@ The inspiration behind FrameJam stems from the growing need for real-time collab
 
 When a user is scrolling, he/she can connect with the top Farcaster accounts and broaden their own networks in the process.
 
+
 ## How it works
 
 Our project incorporates a variety of technologies to enhance the social networking experience. Frames.js serves as the foundational framework, enabling rapid prototyping and development while ensuring seamless rendering of dynamic content and managing user interactions with Farcaster accounts. The app is deployed on Vercel using NextJS and serverless API routes.
@@ -40,6 +41,10 @@ Airstack enriches user encounters by providing deeper insights into individuals'
 
 Finally, Livepeer facilitates one-click stream initiation, seambdwlessly integrating real-time communication capabilities to ensure high-quality and uninterrupted live streams for dynamic collaboration experiences.
 
+### Example of matching profile on FrameJam
+<p align='center'>
+  <img src='./img/profile.png' alt='profile' width=400 />
+</p>
 ## Technologies used:
 
 - Frames.js: Utilized as the foundational framework, frames.js enables rapid prototyping and development while ensuring seamless rendering of dynamic content and managing user interactions. The app is deployed on Vercel using Vercel serverless functions and API responses.
