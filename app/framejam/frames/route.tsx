@@ -194,7 +194,7 @@ const handleRequest = frames(async (ctx) => {
 				let fid = activeProfile?.fid;
 				if (!fid) {
 					neighbors = await getPersonalizedEngagement([requesterFid as any]);
-					activeProfile = await getFullProfile(neighbors[activeIndex]);
+					activeProfile = await getFullProfile(neighbors[activeIndex - 1]);
 					fid = activeProfile.fid;
 				}
 
