@@ -32,7 +32,7 @@ export const createTargetUrl = (params: any) => {
 	return "?" + searchParams.toString();
 }
 
-export const printSymbolProportionalTimesRoundingUp = (amount, maxAmount, symbol, maxLength) => {
+export const printSymbolProportionalTimesRoundingUp = (amount: number, maxAmount: number, symbol: string, maxLength: number): string => {
 	const proportionalAmount = Math.ceil(amount / maxAmount * maxLength);
 	let result = ''
 	for (let i = 0; i < proportionalAmount; i++) {

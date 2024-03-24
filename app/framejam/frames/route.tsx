@@ -20,7 +20,7 @@ import RenderProfile from '../../components/RenderProfile';
 import { isEmpty } from 'livepeer/dist/internal/utils';
 import { getBalances } from '../../lib/airstack';
 import { get } from 'http';
-import { createStream, createStreamUrl } from '../../lib/livepeer';
+import { createStream, getStreamUrl } from '../../lib/livepeer';
 
 const frames = createFrames({
 	basePath: '/framejam/frames',
@@ -208,7 +208,7 @@ const handleRequest = frames(async (ctx) => {
 						<Layout title="Holdings" profileImage={profileImage} displayName={displayName}>
 							<div tw="flex flex-col p-4">
 								<div tw="flex font-bold pb-2">
-									{activeProfile.username}'s most popular ERC20 coin holdings:
+									{activeProfile.username}&apos; most popular ERC20 coin holdings:
 								</div>
 								<div tw="flex flex-col text-2xl">
 									{(holdings as any).map((holding: any, i: number) => (
@@ -284,7 +284,7 @@ const handleRequest = frames(async (ctx) => {
 				}
 				const streamData = await createStream({ name: streamName });
 
-				const streamUrl = createStreamUrl(streamData.streamKey);
+				const streamUrl = getStreamUrl(streamData.streamKey);
 
 				return {
 					image: (
@@ -345,7 +345,7 @@ const handleRequest = frames(async (ctx) => {
 		}
 	} catch (e) {
 		console.error('error:', e);
-		const errorMessage = e.message || JSON.stringify(e);
+		const errorMessage = (e as any).message || JSON.stringify(e);
 		const text = `${errorMessage} 🤯`;
 		return {
 			image: (

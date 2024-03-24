@@ -10,12 +10,6 @@ const livepeer = new Livepeer({
 	apiKey: LIVE_PEER_KEY,
 });
 
-export const getPlaybackSourceUrl = async (playbackId: string) => {
-	const playbackInfo = await livepeer.playback.get(playbackId);
-	const src = getSrc(playbackInfo.playbackInfo);
-	return src;
-};
-
 // https://docs.livepeer.org/developers/guides/create-livestream
 
 export const createStreamSdk = async (streamData: { name: string }) => {
