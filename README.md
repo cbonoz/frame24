@@ -119,53 +119,44 @@ https://docs.pinata.cloud/farcaster/fdk
 5. Monetization Strategies: Explore monetization strategies such as premium subscriptions, sponsored content, and targeted advertising to generate revenue while maintaining a positive user experience and value proposition for users.
 
 ### Screenshots
-
+<h2 align="center">About</h2>
 <p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.52.11%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/about.png" width="600" style="margin-bottom: 20px;">
 </p>
 
+<h2 align="center">Added</h2>
 <p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.35.41%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/added.png" width="600" style="margin-bottom: 20px;">
 </p>
 
+<h2 align="center">Broadcast</h2>
 <p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.37.02%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/broadcast.png" width="600" style="margin-bottom: 20px;">
 </p>
 
+<h2 align="center">Debug</h2>
 <p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.37.12%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/debug.png" width="600" style="margin-bottom: 20px;">
 </p>
 
+<h2 align="center">Holdings</h2>
 <p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.51.46%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/holdings.png" width="600" style="margin-bottom: 20px;">
 </p>
 
+<h2 align="center">Main</h2>
 <p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.51.59%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/main.png" width="600" style="margin-bottom: 20px;">
 </p>
 
+<h2 align="center">Matches</h2>
 <p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.51.39%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/matches.png" width="600" style="margin-bottom: 20px;">
 </p>
 
+<h2 align="center">Profile</h2>
 <p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.34.55%20PM" width="600" style="margin-bottom: 20px;">
-</p>
-
-<p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.39.56%20PM" width="600" style="margin-bottom: 20px;">
-</p>
-
-<p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.47.33%20PM" width="600" style="margin-bottom: 20px;">
-</p>
-
-<p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.37.18%20PM" width="600" style="margin-bottom: 20px;">
-</p>
-
-<p align="center">
-  <img src="./img/Screenshot%202024-03-23%20at%209.52.14%20PM" width="600" style="margin-bottom: 20px;">
+  <img src="./img/profile.png" width="600" style="margin-bottom: 20px;">
 </p>
 
 <!--
