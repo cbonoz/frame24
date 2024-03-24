@@ -12,7 +12,7 @@ Built for the Frameworks 2024 hackathon.
 
 ---
 
-Frame URL: framejam.vercel.app
+Frame URL: https://framejam.vercel.app/framejam/frames
 Demo video:
 
 ## What it does
@@ -79,6 +79,69 @@ Debugger on port 3010.
 - Sponsors: https://ethglobal.com/events/frameworks
 
 https://docs.pinata.cloud/farcaster/fdk
+
+### Future work
+1. Enhanced Recommendation Algorithm: Implement machine learning techniques to improve the recommendation algorithm, considering factors such as user engagement, content similarity, and collaborative filtering to deliver more accurate and personalized suggestions.
+
+2. Social Integration: Integrate with popular social media platforms to allow users to import their social network connections, enriching the discovery process and facilitating connections with friends and acquaintances.
+
+3. Interactive Collaboration Tools: Develop interactive collaboration features such as real-time document editing, shared whiteboards, and group chat functionalities to enable users to collaborate seamlessly on projects and discussions within the platform.
+
+4. Community Building Initiatives: Launch community-building initiatives such as forums, discussion boards, and virtual events to foster engagement, facilitate knowledge sharing, and strengthen the sense of belonging among users.
+
+5. Monetization Strategies: Explore monetization strategies such as premium subscriptions, sponsored content, and targeted advertising to generate revenue while maintaining a positive user experience and value proposition for users.
+
+
+### Images
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.52.11%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.35.41%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.37.02%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.37.12%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.51.46%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.51.59%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.51.39%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.34.55%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.39.56%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.47.33%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.37.18%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="Screenshot%202024-03-23%20at%209.52.14%20PM" width="600" style="margin-bottom: 20px;">
+</p>
+
 
 <!--
 # Frames.js Starter Kit

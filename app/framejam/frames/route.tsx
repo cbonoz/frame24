@@ -13,7 +13,11 @@ import {
 	APP_NAME,
 	HEADER_HEIGHT,
 } from '../../lib/constants';
-import { createTargetUrl, printSymbolProportionalTimesRoundingUp } from '../../lib/utils';
+import {
+	createTargetUrl,
+	jsonToCommaSeparatedStrings,
+	printSymbolProportionalTimesRoundingUp,
+} from '../../lib/utils';
 import { getPersonalizedEngagement } from '../../lib/karma';
 import { getFidUser, trackAddEvent } from '../../lib/pinata';
 import RenderProfile from '../../components/RenderProfile';
@@ -227,6 +231,9 @@ const handleRequest = frames(async (ctx) => {
 							Resume profile search
 						</Button>,
 					],
+					state: {
+						...ctx.state,
+					},
 				};
 			case FramePage.Results:
 				const orderedSelected = selected.sort((a, b) => b.score - a.score);
@@ -272,6 +279,9 @@ const handleRequest = frames(async (ctx) => {
 						</Button>,
 					],
 					textInput: 'Enter stream name or message',
+					state: {
+						...ctx.state,
+					}
 				};
 
 			case FramePage.Stream:
@@ -316,13 +326,39 @@ const handleRequest = frames(async (ctx) => {
 							Open stream
 						</Button>,
 					],
+					state: {
+						...ctx.state,
+					}
+				};
+			case FramePage.SaveList:
+				// render results(selected) as comma separated list
+				const results = jsonToCommaSeparatedStrings(selected);
+				console.log('results', results);
+
+				return {
+					image: (
+						<Layout title="View results" profileImage={profileImage} displayName={displayName}>
+							{results.map((result, i) => (
+								<div tw="flex flex-col text-2xl" key={i}>
+									{result}
+								</div>
+							))}
+							{isEmpty(results) && <div tw="flex text-2xl">No results to save</div>}
+						</Layout>
+					),
+					buttons: [
+						<Button action="post" target={createTargetUrl({ page: FramePage.Results })}>
+							Back to results
+						</Button>,
+						<Button action="post" target={createTargetUrl({ page: FramePage.Menu })}>
+							Back to menu 🏠
+						</Button>,
+					],
+					state: {
+						...ctx.state,
+					}
 				};
 			default:
-				if (framePage === FramePage.SaveList) {
-					// print the json selected list as a csv in an alert modal
-					const csv = JSON.stringify(selected, null, 2);
-					alert(csv);
-				}
 				return {
 					image: (
 						<Layout profileImage={profileImage} displayName={displayName}>

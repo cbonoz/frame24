@@ -39,6 +39,28 @@ export const abbreviate = (str: string, maxLength: number): string => {
 	return str;
 }
 
+export function jsonToCommaSeparatedStrings(jsonObjects: any) {
+	if (isEmpty(jsonObjects)) {
+		return []
+	}
+    // Initialize an empty array to store comma-separated strings
+    let commaSeparatedStrings: any[] = [];
+
+	let keys = Object.keys(jsonObjects[0]);
+	commaSeparatedStrings.push(keys.join(','));
+    // Iterate over each JSON object
+    jsonObjects.forEach(obj => {
+        // Extract keys from the current object
+        // Construct the comma-separated string for the current object
+        let commaSeparatedString = keys.map(key => obj[key]).join(',');
+        // Push the string to the array
+        commaSeparatedStrings.push(commaSeparatedString);
+    });
+
+    // Return the array of comma-separated strings
+    return commaSeparatedStrings;
+}
+
 export const printSymbolProportionalTimesRoundingUp = (amount: number, maxAmount: number, symbol: string, maxLength: number): string => {
 	const proportionalAmount = Math.ceil(amount / maxAmount * maxLength);
 	let result = ''
