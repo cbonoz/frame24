@@ -1,12 +1,6 @@
-
 <p align='center'>
-  <a href="https://github.com/cbonoz/frame24"><img src="https://github.com/cbonoz/logo.png" alt="logo" border="0"></a>
+  <a href="https://github.com/cbonoz/frame24"><img src="https://github.com/cbonoz/frame24/blob/main/public/logo.png" alt="logo" border="0"></a>
 </p>
-
-
-Demo URL:
-
-Demo video:
 
 # FrameJam P2P
 
@@ -16,46 +10,57 @@ FrameJam is a frame app that uses ranked indexes of Farcast users to find trendi
 
 Built for the Frameworks 2024 hackathon.
 
-## Inspiration
+---
+
+Frame URL: framejam.vercel.app
+Demo video:
 
 ## What it does
 
-Scroll through forecasters on their relevance score. Click yay or nay on a bunch / view details on each, then trigger a live stream creation request.
+Scroll through forecasters on their relevance score. Click yay or nay on each recommended individual based on shared interests, then trigger a live stream creation request or cast directly from the frame.
 
+## Inspiration
+
+The inspiration behind FrameJam stemmed from the growing need for real-time collaboration and connection within the Farcast community. As avid users ourselves, we often found it challenging to discover individuals who align with our interests or could potentially contribute to collaborative projects. This inspired us to develop a platform that not only simplifies the process of discovering like-minded individuals but also facilitates seamless collaboration through live streaming capabilities.
 
 ## Technologies used:
 
-* frames.js: foundation of Frame.
-* Karma3: connection ranking and discovery
-* Airstack: social and web3 data for encountered users
-* The graph: index of user content
-* Pinata Frame analytics: user engagement. Find top ranked profiles.
-* Livepeer initiate a stream / broadcast with one click (opens external window).
+- Frames.js: Utilized as the foundational framework, frames.js enables rapid prototyping and development while ensuring seamless rendering of dynamic content and managing user interactions. The app is deployed on Vercel using Vercel serverless functions and API responses.
 
+- Karma3: Powering connection ranking and discovery, Karma3 employs sophisticated algorithms to provide personalized recommendations based on user behavior, enhancing usability and fostering meaningful connections.
 
+- Airstack: Leveraging social and web3 data integration, Airstack enriches user encounters by providing deeper insights into individuals' online presence, fostering transparency and authenticity in interactions.
+
+- Pinata Frame Analytics and API: Tracking user engagement metrics, Pinata Frame Analytics provides valuable insights into user behavior, empowering data-driven decision-making and continuous platform optimization. The Pinata API is also used to hydrate the active user's authencation/Farcaster data.
+
+- Livepeer: Facilitating one-click stream initiation, Livepeer seamlessly integrates real-time communication capabilities, ensuring high-quality and uninterrupted live streams for dynamic collaboration experiences.
+
+<!-- - frames.js: foundation of Frame.
+- Karma3: connection ranking and discovery
+- Airstack: social and web3 data for encountered users
+- The graph: index of user content
+- Pinata Frame analytics: user engagement. Find top ranked profiles.
+- Livepeer initiate a stream / broadcast with one click (opens external window). -->
 
 ## Challenges we ran into
--
--
--
+
+- Integration Hurdles: Bringing together disparate technologies like Karma3 and Livepeer presented integration challenges due to their diverse APIs and data formats. We tackled this by swiftly prototyping and iteratively refining our integration strategies until we achieved seamless interoperability.
+- Working within the Frame context: While secure, the frame context doesn't offer full client-side html or web experience.
 
 ## Accomplishments that we're proud of
--
--
--
+
+Was able to successfully integrate the different sponsors to build an app the validates the existing use case of profile discovery and instant meetings/networking based on shared asset and project interests.
 
 ## What we learned
--
--
--
+
+- The frames.js framework and set up Farcaster! Was great getting exposure to some of this new embedded technology for building secure decentralized apps.
 
 ## What's next for FrameJam
--
--
--
 
+FrameJam is open source, live, and deployed on vercel.
 
 ## Repo structure
+
 `/` (root): Main web project
 
 ## How to run
@@ -66,14 +71,12 @@ Scroll through forecasters on their relevance score. Click yay or nay on a bunch
 
 The frame should now be running on port 3000
 
-Debugger on port 3010
-
-
-
+Debugger on port 3010.
 
 ### Useful links
-* Dashboard: https://ethglobal.com/events/frameworks/home
-* Sponsors: https://ethglobal.com/events/frameworks
+
+- Dashboard: https://ethglobal.com/events/frameworks/home
+- Sponsors: https://ethglobal.com/events/frameworks
 
 https://docs.pinata.cloud/farcaster/fdk
 
