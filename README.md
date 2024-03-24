@@ -30,6 +30,7 @@ The inspiration behind FrameJam stems from the growing need for real-time collab
 
 When a user is scrolling, he/she can connect with the top Farcaster accounts and broaden their own networks in the process.
 
+<!-- >
 ## How it works
 
 Our project incorporates a variety of technologies to enhance the social networking experience. Frames.js serves as the foundational framework, enabling rapid prototyping and development while ensuring seamless rendering of dynamic content and managing user interactions with Farcaster accounts.
@@ -39,6 +40,8 @@ Powering connection ranking and discovery, Karma3 APIs are used to provide perso
 Airstack enriches user encounters by providing deeper insights into individuals' ERC20 currency holdings, fostering transparency and authenticity in interactions and potential interest overlap.. Pinata Frame Analytics tracks user engagement metrics, providing valuable insights into user behavior and empowering data-driven decision-making and continuous platform optimization.
 
 Finally, Livepeer facilitates one-click stream initiation, seambdwlessly integrating real-time communication capabilities to ensure high-quality and uninterrupted live streams for dynamic collaboration experiences.
+
+-->
 
 ### Example of matching profile on FrameJam
 
